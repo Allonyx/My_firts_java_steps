@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,6 +6,8 @@
 package formularios;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,38 +23,37 @@ public class Personas_J extends javax.swing.JFrame {
         initComponents();
         llenar_tabla();
         setTitle("Personas Juridicas");
-        this.getContentPane().setBackground(Color.white);
+        this.getContentPane().setBackground(Color.black);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("TT.png")).getImage());
     }
-    
-    void llenar_tabla(){
-        
+
+    void llenar_tabla() {
+
         Menu m = new Menu();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DecimalFormat decimalFormat = new DecimalFormat(",###");
         Object[] capturar_objetos = new Object[20];
-        
+
         int i = 0;
-        for(i = 0; i < m.vec_per.length; i++){
-            if(m.vec_per[i]. getTipo_dni().equals("NIT")){
-                
+        for (i = 0; i < m.vec_per.length; i++) {
+            if (m.vec_per[i].getTipo_dni().equals("NIT")) {
+
                 capturar_objetos[0] = m.vec_per[i].getTipo_dni();
                 capturar_objetos[1] = m.vec_per[i].getNdi();
                 capturar_objetos[2] = m.vec_per[i].getNom();
-                capturar_objetos[3] = m.vec_per[i].getVia();
-                capturar_objetos[4] = m.vec_per[i].getVda();
-                capturar_objetos[5] = m.vec_per[i].getVp();
-                
-                
-                
+                capturar_objetos[3] = decimalFormat.format(m.vec_per[i].getVia());
+                capturar_objetos[4] = decimalFormat.format(m.vec_per[i].getVda());
+                capturar_objetos[5] = decimalFormat.format(m.vec_per[i].getVp());
+
                 model.addRow(capturar_objetos);
-            
+
             }
-        
+
         }
-    
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,11 +69,18 @@ public class Personas_J extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setBackground(new java.awt.Color(67, 197, 67));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(67, 197, 67));
         jLabel1.setText("Personas Juridicas");
 
+        jButton1.setBackground(new java.awt.Color(0, 129, 153));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Regresar a la Pagina Principal");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +88,8 @@ public class Personas_J extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 129, 153));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Regresar a Contribuyentes");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,38 +107,58 @@ public class Personas_J extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/formularios/l.png"))); // NOI18N
+
+        jButton3.setBackground(new java.awt.Color(0, 129, 153));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("Reporte de Impuesto Contribuyentes");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(279, 279, 279)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(279, 279, 279))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(301, 301, 301)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(72, 72, 72))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(246, 246, 246))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(68, 68, 68))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -149,6 +179,14 @@ public class Personas_J extends javax.swing.JFrame {
         c.setResizable(false);
         c.setLocationRelativeTo(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Reporte_contribuyentes r = new Reporte_contribuyentes();
+        this.setVisible(false);
+        r.setVisible(true);
+        r.setResizable(false);
+        r.setLocationRelativeTo(null);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,9 +226,10 @@ public class Personas_J extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
-
