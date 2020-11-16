@@ -28,30 +28,25 @@ public class Personas_N extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("TT.png")).getImage());
     }
-    
-    void llenar_tabla(){
-    
+
+    void llenar_tabla() {
+
         Menu m = new Menu();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DecimalFormat decimalFormat = new DecimalFormat(",###");
         Object[] capturar_objetos = new Object[20];
-        
+
         int i = 0;
-        for ( i = 0; i < m.vec_per.length; i++){
-            if(m.vec_per[i]. getTipo_dni().equals("CC")) {
-                
+        for (i = 0; i < m.vec_per.length; i++) {
+            if (m.vec_per[i].getTipo_dni().equals("CC")) {
+
                 capturar_objetos[0] = m.vec_per[i].getTipo_dni();
                 capturar_objetos[1] = m.vec_per[i].getNdi();
                 capturar_objetos[2] = m.vec_per[i].getNom();
                 capturar_objetos[3] = decimalFormat.format(m.vec_per[i].getPca());
                 capturar_objetos[4] = decimalFormat.format(m.vec_per[i].getVp());
-                
                 model.addRow(capturar_objetos);
-                
-            
             }
-        
-        
         }
     }
 
@@ -233,4 +228,3 @@ public class Personas_N extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
-

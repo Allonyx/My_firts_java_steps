@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
  * @author aleja
  */
 public class Reporte_contribuyentes extends javax.swing.JFrame {
+
     Menu m = new Menu();
 
     /**
@@ -30,22 +31,22 @@ public class Reporte_contribuyentes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("TT.png")).getImage());
     }
-    private void boton(){
+
+    private void boton() {
         DefaultTableModel model1 = (DefaultTableModel) jTable2.getModel();
         DecimalFormat decimalFormat = new DecimalFormat(",###");
         Object[] capturar_objetos = new Object[20];
         model1.setRowCount(1);
-        
 
         int i = 0;
         String tx = jTextField1.getText();
-        if (tx.equals("")  ) {
+        if (tx.equals("")) {
             JOptionPane.showMessageDialog(null, "Debe Ingresar el numero de DNI del Contribuyente para generar el reporte");
-             return;      
-        } 
+            return;
+        }
 
         for (i = 0; i < m.vec_per.length; i++) {
-            
+
             if (tx.equals(m.vec_per[i].getNdi())) {
 
                 capturar_objetos[0] = m.vec_per[i].getTipo_dni();
@@ -83,21 +84,18 @@ public class Reporte_contribuyentes extends javax.swing.JFrame {
                         capturar_objetos[5] = "3.5%";
                     }
                 }
-
                 model1.addRow(capturar_objetos);
                 break;
-            }      
+            }
         }
-        if(i >= m.vec_per.length){
+        if (i >= m.vec_per.length) {
             JOptionPane.showMessageDialog(null, "Debe Ingresar un Numero de DNI que coincida con\nla Base de Datosde los contribuyente para generar el reporte");
         }
-    
     }
 
     void llenar_tabla() {
         Menu m = new Menu();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
         Object[] capturar_objetos = new Object[20];
 
         int i = 0;
@@ -274,9 +272,9 @@ public class Reporte_contribuyentes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -317,7 +315,6 @@ public class Reporte_contribuyentes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
         this.setVisible(false);
         m.setVisible(true);
         m.setResizable(false);
@@ -325,9 +322,7 @@ public class Reporte_contribuyentes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            boton();
-        
-        
+        boton();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
