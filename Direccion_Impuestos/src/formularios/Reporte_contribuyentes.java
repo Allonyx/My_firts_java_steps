@@ -72,10 +72,10 @@ public class Reporte_contribuyentes extends javax.swing.JFrame {
                     } else if (VP < 120000000) {
                         capturar_objetos[6] = "NO PAGA";
                         capturar_objetos[5] = "0%";
-                    }
+                    } 
                 } else {
                     if (pt > 90000000 && pt50 > 80000000) {
-                        imp = m.vec_per[i].getVia() * 0.045;
+                        imp = m.vec_per[i].getVia() * 0.045; 
                         capturar_objetos[6] = decimalFormat.format(imp);
                         capturar_objetos[5] = "4.5%";
                     } else {
